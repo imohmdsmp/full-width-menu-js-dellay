@@ -1,0 +1,29 @@
+
+    .menu {
+        position: fixed;
+        width: 0;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        background-color: orangered;
+        transition: 1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    button {
+        z-index: 22;
+        position: fixed;
+    }
+
+    ul {
+        list-style: none;
+        width: 100%;
+    }
+    li {
+        transform: translateX(150%);
+        font-size: 50px;
+        transition: 1s;
+    }
