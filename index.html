@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    .menu {
+        position: fixed;
+        width: 0;
+        height: 100vh;
+        right: 0;
+        top: 0;
+        background-color: orangered;
+        transition: 1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    button {
+        z-index: 22;
+        position: fixed;
+    }
+
+    ul {
+        list-style: none;
+        width: 100%;
+    }
+    li {
+        transform: translateX(150%);
+        font-size: 50px;
+        transition: 1s;
+    }
+</style>
+
+<body>
+    <button onclick="_menu()">menu</button>
+
+    <div class="menu">
+        <ul>
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+        </ul>
+    </div>
+
+    <script>
+        let i = 1
+
+        function _menu() {
+            let _li = document.querySelectorAll('ul>li');
+            let menu = document.getElementsByClassName('menu')
+            for(q=0;q<_li.length;q++){
+                _li[q].style=null
+            }
+
+            if (i % 2) {
+                menu[0].style.cssText = 'width:100%'
+                for (m = 0; m < _li.length; m++) {
+                    _li[m].style.transitionDelay = (m / 2) + 's'
+                    _li[m].style.transform='translateX(0)'
+                }
+            } else {
+                menu[0].style.cssText = 'width:0'
+                menu[0].style.transitionTimingFunction = 'ease-in'
+                for (p = 0; p < _li.length; p++) {
+                    _li[p].style.transitionDelay = (p /10) + 's'
+                    _li[p].style.transitionTimingFunction = 'ease-in'
+                    _li[p].style.transform='translateX(150%)'
+                }
+            }
+            i++
+        }
+    </script>
+</body>
+
+</html>
